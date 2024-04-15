@@ -9,11 +9,11 @@ const service = axios.create({
 // 添加请求拦截器
 service.interceptors.request.use(function (config) {
     // 在发送请求之前做些什么
-    const cookie = useCookies()
-    const token = cookie.get('token') 
-    if(token){
-        config.headers['token'] = token
-    }
+    // const cookie = useCookies()
+    // const token = cookie.get('token') 
+    // if(token){
+    //     config.headers['token'] = token
+    // }
     return config;
 }, function (error) {
     // 对请求错误做些什么
@@ -28,7 +28,7 @@ service.interceptors.response.use(function (response) {
     if(response.data.code !== 1){
         ElMessage.error(response.data.msg)
     }
-    return response.data.msg;
+    return response.data;
 }, function (error) {
     // 超出 2xx 范围的状态码都会触发该函数。
     // 对响应错误做点什么

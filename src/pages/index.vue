@@ -9,7 +9,7 @@
                     <PageHeader />
                 </el-header>
                 <el-main>
-                    Main
+                    <RouterView />
                 </el-main>
             </el-container>
         </el-container>

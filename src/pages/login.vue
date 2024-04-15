@@ -4,7 +4,7 @@
             <div>
                 <div style="font-family: Verdana, Geneva, Tahoma, sans-serif;"
                     class="font-bold text-6xl text-light-100 mb-4">Self-Driving-Tour</div>
-                <div align="center" class="mb-2 text-light-100 text-2xl">基于SpringBoot的自驾游系统</div>
+                <div align="center" class="mb-2 text-light-100 text-2xl">基于SpringBoot的自驾游系统后台管理页面</div>
                 <div align="center" style="font-family: 幼圆;" class="text-amber-900 text-3xl bg-light-100 rounded-3xl">
                     李晓庆
                 </div>
@@ -58,14 +58,14 @@ import { login } from '../apis/users'
 const router = useRouter()
 
 const form = reactive({
-    username: '',
-    password: '',
+    username: 'lxq',
+    password: '123456',
 })
 
 const rules = {
     username: [
         { required: true, message: '请输入用户名', trigger: 'blur' },
-        { min: 5, max: 10, message: '长度需要5-10个字符', trigger: 'blur' }
+        { min: 3, max: 10, message: '长度需要3-10个字符', trigger: 'blur' }
     ],
     password: [
         { required: true, message: '请输入密码', trigger: 'blur' },
@@ -83,12 +83,12 @@ const onSubmit = () => {
             .then(res => {
                 console.log(res)
 
-                const cookie = useCookies()
-                cookie.set('token',res.token)
+                // const cookie = useCookies()
+                // cookie.set('token',res.token)
                 router.push('/index')
             })
             .catch(err => {
-  
+
             })
     })
 }

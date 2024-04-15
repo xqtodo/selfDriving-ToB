@@ -10,22 +10,25 @@
                 <el-icon>
                     <location />
                 </el-icon>
-                <span>Navigator One</span>
+                <span>系统管理</span>
             </template>
             <el-menu-item-group>
-                <template #title><span>Group One</span></template>
-                <el-menu-item index="1-1">item one</el-menu-item>
-                <el-menu-item index="1-2">item two</el-menu-item>
+                <template #title><span>旅游</span></template>
+                <el-menu-item index="1-1" @click="spotsClick">景点管理</el-menu-item>
+                <el-menu-item index="1-2">路线管理</el-menu-item>
             </el-menu-item-group>
-            <el-menu-item-group title="Group Two">
-                <el-menu-item index="1-3">item three</el-menu-item>
+            <el-menu-item-group title="租车">
+                <el-menu-item index="1-3">租车管理</el-menu-item>
             </el-menu-item-group>
-            <el-sub-menu index="1-4">
-                <template #title><span>item four</span></template>
-                <el-menu-item index="1-4-1">item one</el-menu-item>
-            </el-sub-menu>
+            <el-menu-item-group title="用户">
+                <el-menu-item index="1-4">用户管理</el-menu-item>
+            </el-menu-item-group>
+            <!-- <el-sub-menu index="1-4">
+                <template #title><span>论坛</span></template>
+                <el-menu-item index="1-4-1">热门分享</el-menu-item>
+            </el-sub-menu> -->
         </el-sub-menu>
-        <el-menu-item index="2">
+        <!-- <el-menu-item index="2">
             <el-icon><icon-menu /></el-icon>
             <template #title>Navigator Two</template>
         </el-menu-item>
@@ -40,18 +43,26 @@
                 <setting />
             </el-icon>
             <template #title>Navigator Four</template>
-        </el-menu-item>
+        </el-menu-item> -->
     </el-menu>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router';
 import {
     Document,
     Menu as IconMenu,
     Location,
     Setting,
 } from '@element-plus/icons-vue'
+
+const router = useRouter()
+
+const spotsClick = () => {
+    console.log('spotsClick')
+    router.push('/index/addSpots')
+}
 
 const isCollapse = ref(false)
 const handleOpen = (key, keyPath) => {
