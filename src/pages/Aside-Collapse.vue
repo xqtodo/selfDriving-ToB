@@ -15,13 +15,13 @@
             <el-menu-item-group>
                 <template #title><span>旅游</span></template>
                 <el-menu-item index="1-1" @click="spotsClick">景点管理</el-menu-item>
-                <el-menu-item index="1-2">路线管理</el-menu-item>
+                <el-menu-item index="1-2" @click="routesClick">路线管理</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group title="租车">
-                <el-menu-item index="1-3">租车管理</el-menu-item>
+                <el-menu-item index="1-3" @click="carClick">租车管理</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group title="用户">
-                <el-menu-item index="1-4">用户管理</el-menu-item>
+                <el-menu-item index="1-4" @click="userClick">用户管理</el-menu-item>
             </el-menu-item-group>
             <!-- <el-sub-menu index="1-4">
                 <template #title><span>论坛</span></template>
@@ -62,6 +62,20 @@ const router = useRouter()
 const spotsClick = () => {
     console.log('spotsClick')
     router.push('/index/addSpots')
+}
+const routesClick = () => {
+    console.log('routesClick')
+    router.push('/index/addRoutes')
+}
+
+const carClick = () => {
+    console.log('carClick')
+    router.push('/index/addCar')
+}
+
+const userClick = () => {
+    console.log('userClick')
+    router.push('/index/addUser')
 }
 
 const isCollapse = ref(false)
